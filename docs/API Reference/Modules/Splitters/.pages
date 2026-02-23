@@ -1,0 +1,6 @@
+title: Splitters
+nav:
+  - recursive_splitter.md
+  - text_splitter.md
+  - node_splitter.md
+  - pdf_image_splitter.md

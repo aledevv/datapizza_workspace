@@ -1,0 +1,10 @@
+nav:
+    - Clients
+    - Agents
+    - Embedders
+    - Vectorstore
+    - memory.md
+    - Type
+    - Pipelines
+    - Modules
+    - Tools

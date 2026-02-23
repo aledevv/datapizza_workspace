@@ -1,0 +1,14 @@
+title: Modules
+nav:
+  - index.md
+  - Parsers
+  - treebuilder.md
+  - captioners.md
+  - Splitters
+  - metatagger.md
+
+  #- embedders.md
+
+  - rewriters.md
+  - Rerankers
+  - Prompt
