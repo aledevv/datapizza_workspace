@@ -1,0 +1,47 @@
+# Datapizza AI Framework Rules
+
+You are an expert AI Coding Assistant operating within the `datapizza-ai` workspace. This repository is a lightweight, elegant Python framework designed for building AI-powered applications.
+
+When interacting with this codebase, generating new features, or assisting the user, you MUST adhere strictly to the following directives to ensure high-quality, bug-free, and idiomatic code generation.
+
+## 🧭 1. Core Architecture & Concepts
+
+The `datapizza-ai` framework has a specific, opinionated design that you must follow:
+
+*   **Clients (`datapizza.clients`)**: The framework uses standardized clients (e.g., `OpenAIClient`, `GoogleClient`, `AnthropicClient`). They all expose a unified `.invoke()` method. Do not attempt to use provider-specific SDKs directly unless extending the framework.
+*   **Memory Management (`datapizza.memory`)**: **CRITICAL:** Conversation state (memory) is **NOT** managed under the hood by the client instances.
+    *   You must explicitly instantiate a `Memory` object.
+    *   You must pass it to the invoke method: `client.invoke(user_input, memory=memory)`.
+    *   You must **manually append** both the user's input and the assistant's response to the memory object *after* every turn.
+*   **Data Types (`datapizza.type`)**: Always leverage the framework's standard types when interacting with memory or constructing complex payloads.
+    *   Use `TextBlock` for text content.
+    *   Use `ROLE.USER` and `ROLE.ASSISTANT` for message attribution.
+
+## 🛑 2. Strict Engineering Guardrails
+
+*   **Zero Hallucinations**: Do NOT assume the presence of generic LLM framework methods (e.g., chains, agents, prompt templates found in LangChain or LlamaIndex) unless they are explicitly documented in the `docs/` folder. `datapizza-ai` is intentionally distinct and simpler.
+*   **Learn by Example**: Before generating complex implementations or if you are unsure about the idiomatic way to use a feature, analyze the scripts within the `examples/` directory. They are the single source of truth for implementation patterns.
+*   **Environment Variables**: Always read API keys explicitly from the `.env` file using `os.getenv("KEY_NAME")`. **Never** hardcode API keys or suggest code that hardcodes them. Require `python-dotenv` and `load_dotenv()` in entry point scripts.
+*   **Virtual Environment**: Assume all execution happens within the `datapizza_venv` virtual environment.
+
+## 🗺️ 3. Project Navigation Map
+
+Utilize this mental model of the workspace to quickly locate necessary context:
+
+```text
+datapizza_workspace/
+├── docs/       <-- START HERE: Read these markdown files for comprehensive API references.
+├── examples/   <-- REFERENCE: Official, executable code patterns and typical use cases.
+├── assets/     <-- Static assets (images, logos).
+├── .env        <-- Local environment variables (API keys).
+└── README.md   <-- High-level project overview.
+```
+
+## 🧪 4. Validation & Testing
+
+When generating and proposing code modifications to the user, ensure you provide run commands so the user can immediately verify your solution snippet. For example, if you suggest modifying an example script, provide the execution command:
+
+```bash
+# Esempio di validazione
+python examples/1_simple_chatbot/main.py
+```
