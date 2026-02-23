@@ -1,3 +1,11 @@
 Icon?
 Icon[[:cntrl:]]
 datapizza_venv/
+
+
+.DS_Store
+*.pyc
+__pycache__/
+.env/
+.env
+
