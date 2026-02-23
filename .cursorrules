@@ -37,6 +37,8 @@ datapizza_workspace/
 └── README.md   <-- High-level project overview.
 ```
 
+**Note**: in docs/ you can find both the single topics in detail divided in folders and also a file named `datapizza-ai_docs.md` containing the whole documentation in a single bigger file.
+
 ## 🧪 4. Validation & Testing
 
 When generating and proposing code modifications to the user, ensure you provide run commands so the user can immediately verify your solution snippet. For example, if you suggest modifying an example script, provide the execution command:
