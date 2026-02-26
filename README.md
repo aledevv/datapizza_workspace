@@ -30,6 +30,14 @@ python -m venv datapizza_venv
 source datapizza_venv/bin/activate  # Su Windows: .\datapizza_venv\Scripts\activate
 ```
 
+# Se ti piace uv
+```bash
+uv venv
+source .venv/bin/activate
+uv pip install -r requirements.txt
+# you can skip step 4
+```
+
 ### 2. Installa il Framework
 ```bash
 pip install datapizza-ai
